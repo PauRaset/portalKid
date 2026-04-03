@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function App() {
+  const [selectedTalla, setSelectedTalla] = useState('S')
   return (
     <div
       style={{
@@ -114,10 +115,16 @@ export default function App() {
                 flexWrap: 'wrap',
               }}
             >
-              <button style={selectedSize}>S</button>
-              <button style={sizeButton}>M</button>
-              <button style={sizeButton}>L</button>
-              <button style={sizeButton}>XL</button>
+              {['S', 'M', 'L', 'XL'].map((talla) => (
+                <button
+                  key={talla}
+                  type="button"
+                  onClick={() => setSelectedTalla(talla)}
+                  style={selectedTalla === talla ? selectedSize : sizeButton}
+                >
+                  {talla}
+                </button>
+              ))}
             </div>
           </div>
 
