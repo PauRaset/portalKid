@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export default function App() {
   const [selectedTalla, setSelectedTalla] = useState('S')
+  const [selectedColor, setSelectedColor] = useState('Negro')
   return (
     <div
       style={{
@@ -128,6 +129,62 @@ export default function App() {
             </div>
           </div>
 
+          <div style={{ marginBottom: '24px' }}>
+            <div
+              style={{
+                marginBottom: '12px',
+                fontWeight: '600',
+                fontSize: '15px',
+              }}
+            >
+              Color
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                gap: '12px',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+              }}
+            >
+              <button
+                type="button"
+                aria-label="Color negro"
+                onClick={() => setSelectedColor('Negro')}
+                style={selectedColor === 'Negro' ? selectedColorCircle : colorCircle}
+              >
+                <span
+                  style={{
+                    width: '22px',
+                    height: '22px',
+                    borderRadius: '50%',
+                    backgroundColor: '#111111',
+                    display: 'block',
+                  }}
+                />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Color blanco"
+                onClick={() => setSelectedColor('Blanco')}
+                style={selectedColor === 'Blanco' ? selectedColorCircle : colorCircle}
+              >
+                <span
+                  style={{
+                    width: '22px',
+                    height: '22px',
+                    borderRadius: '50%',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #d6d6d6',
+                    display: 'block',
+                  }}
+                />
+              </button>
+            </div>
+          </div>
+
           <div style={{ marginBottom: '30px' }}>
             <div
               style={{
@@ -206,4 +263,31 @@ const selectedSize = {
   cursor: 'pointer',
   fontSize: '14px',
   fontWeight: '600',
+}
+
+const colorCircle = {
+  width: '44px',
+  height: '44px',
+  borderRadius: '50%',
+  border: '1px solid #d6d6d6',
+  backgroundColor: '#ffffff',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  padding: '0',
+}
+
+const selectedColorCircle = {
+  width: '44px',
+  height: '44px',
+  borderRadius: '50%',
+  border: '2px solid #111111',
+  backgroundColor: '#ffffff',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  padding: '0',
+  boxShadow: '0 0 0 3px rgba(17,17,17,0.08)',
 }
